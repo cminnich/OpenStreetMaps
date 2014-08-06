@@ -1,0 +1,498 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="Osmosis 0.43.1">
+  <bounds minlon="-122.73700" minlat="37.44900" maxlon="-122.01100" maxlat="37.95500" origin="http://www.openstreetmap.org/api/0.6"/>
+  <node id="281266" version="6" timestamp="2014-06-15T18:55:15Z" uid="1660455" user="juergenb22" changeset="22950379" lat="37.5601845" lon="-122.3025783"/>
+  <node id="281393" version="8" timestamp="2009-11-08T08:11:05Z" uid="28775" user="StellanL" changeset="3061377" lat="37.5280244" lon="-122.2948711"/>
+  <node id="281394" version="7" timestamp="2009-11-08T08:11:05Z" uid="28775" user="StellanL" changeset="3061377" lat="37.5271055" lon="-122.2978408"/>
+  <node id="281395" version="7" timestamp="2009-11-08T08:11:05Z" uid="28775" user="StellanL" changeset="3061377" lat="37.5265201" lon="-122.3013256"/>
+  <node id="281396" version="7" timestamp="2009-11-08T08:11:06Z" uid="28775" user="StellanL" changeset="3061377" lat="37.5258462" lon="-122.3021152"/>
+  <node id="26028129" version="12" timestamp="2012-07-06T22:08:20Z" uid="169004" user="oldtopos" changeset="12135372" lat="37.4817473" lon="-122.1770085">
+    <tag k="exit_to" v="SR-84;Marsh Road"/>
+    <tag k="highway" v="motorway_junction"/>
+    <tag k="ref" v="406"/>
+    <tag k="source" v="http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/101.pdf"/>
+  </node>
+  <node id="26028133" version="7" timestamp="2011-05-27T09:35:05Z" uid="14293" user="KindredCoda" changeset="8260716" lat="37.4836887" lon="-122.181374"/>
+  <node id="26029708" version="7" timestamp="2013-05-01T04:55:26Z" uid="14293" user="KindredCoda" changeset="15928750" lat="37.5239428" lon="-122.267169"/>
+  <node id="26029745" version="8" timestamp="2011-05-27T09:35:05Z" uid="14293" user="KindredCoda" changeset="8260716" lat="37.4845361" lon="-122.18417"/>
+  <node id="26029880" version="5" timestamp="2012-10-17T22:33:17Z" uid="207745" user="NE2" changeset="13538213" lat="37.5412344" lon="-122.2847347">
+    <tag k="exit_to" v="Hillsdale Bolevard;Foster City"/>
+    <tag k="highway" v="motorway_junction"/>
+    <tag k="ref" v="414A"/>
+    <tag k="source" v="http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/101.pdf"/>
+  </node>
+  <node id="26117856" version="15" timestamp="2010-04-19T20:46:46Z" uid="14293" user="KindredCoda" changeset="4472283" lat="37.5860936" lon="-122.3313774"/>
+  <node id="26117861" version="16" timestamp="2013-04-11T08:55:12Z" uid="14293" user="KindredCoda" changeset="15686921" lat="37.6539819" lon="-122.4071324"/>
+  <node id="26118026" version="13" timestamp="2013-04-11T09:26:41Z" uid="14293" user="KindredCoda" changeset="15687289" lat="37.6754004" lon="-122.3891533"/>
+  <node id="26118028" version="10" timestamp="2009-07-05T10:07:27Z" uid="14293" user="KindredCoda" changeset="1736976" lat="37.6788858" lon="-122.3884915"/>
+  <node id="26374478" version="11" timestamp="2011-01-07T07:01:31Z" uid="160138" user="DanHomerick" changeset="6889781" lat="37.5560492" lon="-122.2861917"/>
+  <node id="26508065" version="5" timestamp="2011-08-08T08:23:36Z" uid="14293" user="KindredCoda" changeset="8954417" lat="37.4490363" lon="-122.1210512"/>
+  <node id="26795943" version="15" timestamp="2010-04-19T20:46:46Z" uid="14293" user="KindredCoda" changeset="4472283" lat="37.5850882" lon="-122.3296044"/>
+  <node id="26795948" version="17" timestamp="2014-06-15T18:55:15Z" uid="1660455" user="juergenb22" changeset="22950379" lat="37.5865776" lon="-122.3333487"/>
+  <node id="26795953" version="16" timestamp="2010-11-04T07:40:31Z" uid="14293" user="KindredCoda" changeset="6286244" lat="37.5892018" lon="-122.3600775"/>
+  <node id="26795958" version="18" timestamp="2014-06-15T18:55:15Z" uid="1660455" user="juergenb22" changeset="22950379" lat="37.587261" lon="-122.3543666"/>
+  <node id="26795963" version="18" timestamp="2011-01-06T22:33:47Z" uid="14293" user="KindredCoda" changeset="6887687" lat="37.609716" lon="-122.3915764"/>
+    <node id="26819236" version="31" timestamp="2014-04-19T12:15:24Z" uid="1811853" user="olaf1000" changeset="21795699" lat="37.7792768" lon="-122.4192704">
+    <tag k="alt_name" v="SF"/>
+    <tag k="is_in:continent" v="North America"/>
+    <tag k="is_in:country" v="United States"/>
+    <tag k="is_in:country_code" v="US"/>
+    <tag k="name" v="San Francisco"/>
+    <tag k="name:de" v="San Francisco"/>
+    <tag k="name:eu" v="San Francisco"/>
+    <tag k="name:hi" v="सैन फ्रांसिस्को"/>
+    <tag k="name:kn" v="ಸಾನ್ ಫ್ರಾನ್ಸಿಸ್ಕೊ"/>
+    <tag k="name:pt" v="São Francisco"/>
+    <tag k="name:ru" v="Сан-Франциско"/>
+    <tag k="name:ta" v="ஸான் ப்²ரான்ஸிஸ்கொ"/>
+    <tag k="name:zh" v="舊金山市與縣"/>
+    <tag k="place" v="city"/>
+    <tag k="population" v="815358"/>
+    <tag k="rank" v="10"/>
+    <tag k="wikipedia" v="en:San_Francisco"/>
+    <tag k="z_order" v="2"/>
+  </node>
+  <node id="306079948" version="2" timestamp="2012-01-08T05:29:07Z" uid="355242" user="Bryce C Nesbitt" changeset="103281
+69" lat="37.8838199" lon="-122.1422283">
+    <tag k="ALAND" v="0"/>
+    <tag k="AWATER" v="431202"/>
+    <tag k="COUNTYFP" v="013"/>
+    <tag k="ele" v="139"/>
+    <tag k="landuse" v="reservoir"/>
+    <tag k="latitude" v="+37.8812992"/>
+    <tag k="longitude" v="-122.1420097"/>
+    <tag k="MTFCC" v="H2040"/>
+    <tag k="name" v="Lafayette Reservoir"/>
+    <tag k="Source" v="Tiger2009"/>
+    <tag k="STATEFP" v="06"/>
+    <tag k="Tiger:HYDROID" v="110169760987"/>
+    <tag k="Tiger:MTFCC" v="H2040"/>
+  </node>
+  <node id="26819598" version="9" timestamp="2012-07-01T20:12:25Z" uid="169004" user="oldtopos" changeset="12080624" lat="37.9036307" lon="-122.3127611">
+    <tag k="exit_to" v="El Cerrito;Central Avenue"/>
+    <tag k="highway" v="motorway_junction"/>
+    <tag k="ref" v="14A"/>
+    <tag k="source" v="http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/80.pdf"/>
+  </node>
+  <node id="2973866073" version="1" timestamp="2014-07-22T00:17:55Z" uid="1249504" user="EranChazan" changeset="24284502"
+ lat="37.8244657" lon="-122.2254297"/>
+  <node id="2973866074" version="1" timestamp="2014-07-22T00:17:55Z" uid="1249504" user="EranChazan" changeset="24284502"
+ lat="37.8245928" lon="-122.2251279"/>
+  <node id="2973870141" version="1" timestamp="2014-07-22T00:37:52Z" uid="644152" user="npdoty" changeset="24284578" lat=
+"37.8266188" lon="-122.2529921">
+    <tag k="addr:city" v="Oakland"/>
+    <tag k="addr:housenumber" v="165"/>
+    <tag k="addr:street" v="41st Street"/>
+    <tag k="amenity" v="restaurant"/>
+    <tag k="cuisine" v="japanese"/>
+    <tag k="name" v="Geta Sushi"/>
+  </node>
+  <node id="2973893551" version="1" timestamp="2014-07-22T02:43:05Z" uid="2181142" user="lawyiu" changeset="24285117" lat
+="37.5339689" lon="-122.3274349">
+    <tag k="addr:postcode" v="94403"/>
+    <tag k="amenity" v="veterinary"/>
+    <tag k="name" v="Laurelwood Veterinary Clinic"/>
+  </node>
+  <node id="29891391" version="17" timestamp="2012-06-30T20:14:04Z" uid="169004" user="oldtopos" changeset="12069587" lat="37.7008958" lon="-122.027241">
+    <tag k="exit_to" v="Eden Canyon Road; Palomares Road"/>
+    <tag k="highway" v="motorway_junction"/>
+    <tag k="ref" v="39"/>
+  </node>
+  <node id="29891393" version="13" timestamp="2010-03-01T08:07:17Z" uid="14293" user="KindredCoda" changeset="4006391" lat="37.7010167" lon="-122.0277855"/>
+  <node id="29891394" version="12" timestamp="2010-12-27T18:27:48Z" uid="162110" user="tahongawaka" changeset="6780676" lat="37.7019654" lon="-122.0321399"/>
+  <node id="2976018766" version="1" timestamp="2014-07-23T17:13:44Z" uid="355242" user="Bryce C Nesbitt" changeset="24315
+942" lat="37.8589894" lon="-122.289539"/>
+  <node id="2976018767" version="1" timestamp="2014-07-23T17:13:44Z" uid="355242" user="Bryce C Nesbitt" changeset="24315
+942" lat="37.8590011" lon="-122.2902375"/>
+  <node id="2976018768" version="1" timestamp="2014-07-23T17:13:44Z" uid="355242" user="Bryce C Nesbitt" changeset="24315
+942" lat="37.8590564" lon="-122.2900668"/>
+  <node id="2976018769" version="1" timestamp="2014-07-23T17:13:44Z" uid="355242" user="Bryce C Nesbitt" changeset="24315
+942" lat="37.8590802" lon="-122.2891066"/>
+  <node id="2976018770" version="1" timestamp="2014-07-23T17:13:44Z" uid="355242" user="Bryce C Nesbitt" changeset="24315
+942" lat="37.8591555" lon="-122.289595"/>
+  <node id="2976045590" version="1" timestamp="2014-07-23T17:29:15Z" uid="153669" user="dchiles" changeset="24316202" lat
+="37.4866237" lon="-122.2247894"/>
+  <node id="2976045591" version="1" timestamp="2014-07-23T17:29:15Z" uid="153669" user="dchiles" changeset="24316202" lat
+="37.4866367" lon="-122.2248374"/>
+  <node id="2976045592" version="1" timestamp="2014-07-23T17:29:15Z" uid="153669" user="dchiles" changeset="24316202" lat
+="37.4867341" lon="-122.2246622"/>
+  <node id="2976045593" version="1" timestamp="2014-07-23T17:29:15Z" uid="153669" user="dchiles" changeset="24316202" lat
+="37.4867909" lon="-122.2246184"/>
+  <node id="2976045594" version="1" timestamp="2014-07-23T17:29:15Z" uid="153669" user="dchiles" changeset="24316202" lat
+="37.4868056" lon="-122.222892"/>
+  <node id="2976045595" version="1" timestamp="2014-07-23T17:29:15Z" uid="153669" user="dchiles" changeset="24316202" lat
+="37.4868307" lon="-122.224621"/>
+  <node id="2976052716" version="1" timestamp="2014-07-23T17:31:55Z" uid="153669" user="dchiles" changeset="24316243" lat
+="37.8336117" lon="-122.494186"/>
+  <node id="2976052717" version="1" timestamp="2014-07-23T17:31:55Z" uid="153669" user="dchiles" changeset="24316243" lat
+="37.8337098" lon="-122.4941811"/>
+  <node id="2976086707" version="1" timestamp="2014-07-23T17:45:03Z" uid="153669" user="dchiles" changeset="24316484" lat="37.5347309" lon="-122.5059781"/>
+  <node id="1314521522" version="2" timestamp="2011-06-07T17:36:17Z" uid="70696" user="xybot" changeset="8372211" lat="37
+.9032133" lon="-122.3196702">
+    <tag k="amenity" v="drinking_water"/>
+    <tag k="bottle" v="yes"/>
+    <tag k="note" v="dog park, no drinking fountain"/>
+    <tag k="source" v="wetap"/>
+    <tag k="wetap:flow" v="good"/>
+    <tag k="wetap:photo" v="https://lh6.googleusercontent.com/_lRj66XqgIsk/TbTAJbI4KWI/AAAAAAAAAP8/5F5EjaafPzk/warm-good-fillable-.jpg"/>
+    <tag k="wetap:status" v="working"/>
+    <tag k="wetap:temperature" v="warm"/>
+  </node>
+  <way id="4311275" version="41" timestamp="2013-04-11T08:55:17Z" uid="14293" user="KindredCoda" changeset="15686921">
+    <nd ref="32927063"/>
+    <nd ref="2262036212"/>
+    <nd ref="30033688"/>
+    <nd ref="989840971"/>
+    <nd ref="989840976"/>
+    <nd ref="2262036223"/>
+    <nd ref="29891969"/>
+    <nd ref="2262493188"/>
+    <nd ref="2262036210"/>
+    <nd ref="989842032"/>
+    <nd ref="2262036209"/>
+    <nd ref="30033691"/>
+    <nd ref="989842035"/>
+    <nd ref="989842036"/>
+    <nd ref="2262036215"/>
+    <nd ref="29891970"/>
+    <nd ref="989842039"/>
+    <nd ref="989842041"/>
+    <nd ref="989842042"/>
+    <nd ref="2262036216"/>
+    <nd ref="30033693"/>
+    <nd ref="2262036213"/>
+    <nd ref="263061076"/>
+    <nd ref="267757896"/>
+    <nd ref="2262036204"/>
+    <nd ref="2262036218"/>
+    <nd ref="1096003001"/>
+    <nd ref="2262036225"/>
+    <nd ref="1096003002"/>
+    <nd ref="2262036203"/>
+    <nd ref="30033694"/>
+    <nd ref="2262036199"/>
+    <nd ref="1096003003"/>
+    <nd ref="2262036222"/>
+    <nd ref="2262036219"/>
+    <nd ref="1096003004"/>
+    <nd ref="29891971"/>
+    <nd ref="2262036214"/>
+    <nd ref="2262036211"/>
+    <nd ref="1096003072"/>
+    <nd ref="259458354"/>
+    <nd ref="259458272"/>
+    <nd ref="1096003246"/>
+    <nd ref="2262036200"/>
+    <nd ref="2262036221"/>
+    <nd ref="1096003247"/>
+    <nd ref="2262036198"/>
+    <nd ref="1096003248"/>
+    <nd ref="2262036217"/>
+    <nd ref="29891972"/>
+    <nd ref="2262036224"/>
+    <nd ref="1096003250"/>
+    <nd ref="2262036207"/>
+    <nd ref="1096003251"/>
+    <nd ref="2262036220"/>
+    <nd ref="2262036221"/>
+    <nd ref="1096003247"/>
+    <nd ref="2262036198"/>
+    <nd ref="1096003248"/>
+    <nd ref="2262036217"/>
+    <nd ref="29891972"/>
+    <nd ref="2262036224"/>
+    <nd ref="1096003250"/>
+    <nd ref="2262036207"/>
+    <nd ref="1096003251"/>
+    <nd ref="2262036220"/>
+    <nd ref="1096003290"/>
+    <nd ref="30033696"/>
+    <tag k="bicycle" v="no"/>
+    <tag k="hgv" v="designated"/>
+    <tag k="hgv:national_network" v="yes"/>
+    <tag k="highway" v="motorway"/>
+    <tag k="lanes" v="4"/>
+    <tag k="name" v="Bayshore Freeway"/>
+    <tag k="NHS" v="STRAHNET"/>
+    <tag k="oneway" v="yes"/>
+    <tag k="ref" v="US 101"/>
+    <tag k="source:hgv:national_network" v="Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&amp;rgn=div5&amp;view=text&amp;node=23:1.0.1.7.33&amp;idno=23"/>
+  </way>
+  <way id="4352168" version="49" timestamp="2013-09-20T19:03:57Z" uid="318696" user="n76" changeset="17945349">
+    <nd ref="31053245"/>
+    <nd ref="303907412"/>
+    <tag k="bicycle" v="no"/>
+    <tag k="foot" v="no"/>
+    <tag k="hgv" v="designated"/>
+    <tag k="highway" v="motorway"/>
+    <tag k="horse" v="no"/>
+    <tag k="lanes" v="4"/>
+    <tag k="maxspeed" v="65 mph"/>
+    <tag k="maxspeed:hgv" v="55 mph"/>
+    <tag k="maxspeed:trailer" v="55 mph"/>
+    <tag k="name" v="Junipero Serra Freeway"/>
+    <tag k="oneway" v="yes"/>
+    <tag k="ref" v="I 280"/>
+    <tag k="sidewalk" v="none"/>
+  </way>  
+  <way id="6377679" version="3" timestamp="2010-03-27T10:07:55Z" uid="20587" user="balrog-kun" changeset="4244079">
+    <nd ref="53102556"/>
+    <nd ref="53121594"/>
+    <nd ref="441535072"/>
+    <nd ref="441535073"/>
+    <tag k="highway" v="residential"/>
+    <tag k="name" v="Trumpet Court"/>
+    <tag k="tiger:cfcc" v="A41"/>
+    <tag k="tiger:county" v="Alameda, CA"/>
+    <tag k="tiger:name_base" v="Trumpet"/>
+    <tag k="tiger:name_type" v="Ct"/>
+    <tag k="tiger:reviewed" v="no"/>
+    <tag k="tiger:separated" v="no"/>
+    <tag k="tiger:source" v="tiger_import_dch_v0.6_20070809"/>
+    <tag k="tiger:tlid" v="125015872"/>
+    <tag k="tiger:zip_left" v="94552"/>
+    <tag k="tiger:zip_right" v="94552"/>
+  </way>
+  <way id="293800320" version="1" timestamp="2014-07-21T23:44:14Z" uid="1249504" user="EranChazan" changeset="24284319">
+    <nd ref="2973853158"/>
+    <nd ref="2973853155"/>
+    <nd ref="2973853154"/>
+    <nd ref="2973853156"/>
+    <nd ref="2973853158"/>
+    <tag k="leisure" v="swimming_pool"/>
+  </way>
+  <way id="293800321" version="1" timestamp="2014-07-21T23:44:14Z" uid="1249504" user="EranChazan" changeset="24284319">
+    <nd ref="2973853175"/>
+    <nd ref="2973853173"/>
+    <nd ref="2973853172"/>
+    <nd ref="2973853174"/>
+    <nd ref="2973853175"/>
+    <tag k="leisure" v="swimming_pool"/>
+  </way>
+  <way id="293800349" version="1" timestamp="2014-07-21T23:46:04Z" uid="1249504" user="EranChazan" changeset="24284335">
+    <nd ref="2973853738"/>
+    <nd ref="2973853737"/>
+    <nd ref="2973853735"/>
+    <nd ref="2973853736"/>
+    <nd ref="2973853738"/>
+    <tag k="building" v="garage"/>
+  </way>
+  <way id="293800350" version="1" timestamp="2014-07-21T23:46:04Z" uid="1249504" user="EranChazan" changeset="24284335">
+    <nd ref="2973853743"/>
+    <nd ref="2973853739"/>
+    <nd ref="2973853740"/>
+    <nd ref="2973853741"/>
+    <nd ref="2973853742"/>
+    <nd ref="2973853744"/>
+    <nd ref="2973853743"/>
+    <tag k="building" v="house"/>
+  </way>
+  <way id="294034828" version="1" timestamp="2014-07-23T17:13:44Z" uid="355242" user="Bryce C Nesbitt" changeset="2431594
+2">
+    <nd ref="2976018769"/>
+    <nd ref="2976018763"/>
+    <nd ref="2976018761"/>
+    <nd ref="2976018757"/>
+    <nd ref="2976018755"/>
+    <nd ref="2976018768"/>
+    <nd ref="2976018770"/>
+    <nd ref="2205390414"/>
+    <nd ref="2205390413"/>
+    <nd ref="2976018766"/>
+    <nd ref="2976018769"/>
+    <tag k="landuse" v="farmland"/>
+    <tag k="name" v="Urban Adamah"/>
+    <tag k="religion" v="jewish"/>
+    <tag k="website" v="http://urbanadamah.org/"/>
+  </way>
+  <way id="294034829" version="1" timestamp="2014-07-23T17:13:44Z" uid="355242" user="Bryce C Nesbitt" changeset="2431594
+2">
+    <nd ref="2976018765"/>
+    <nd ref="2976018767"/>
+    <nd ref="2976018764"/>
+    <nd ref="2976018762"/>
+    <nd ref="2976018759"/>
+    <nd ref="2976018758"/>
+    <nd ref="2976018756"/>
+    <nd ref="2976018754"/>
+    <nd ref="2976018765"/>
+    <tag k="building" v="yes"/>
+    <tag k="description" v="Home of Fantasy Records / Fantasy Studios"/>
+    <tag k="name" v="Zaentz Media Center"/>
+    <tag k="website" v="http://www.zaentzmediacenter.com/"/>
+  </way>
+  <way id="294035012" version="1" timestamp="2014-07-23T17:15:06Z" uid="153669" user="dchiles" changeset="24315962">
+    <nd ref="2976007006"/>
+    <nd ref="539306916"/>
+    <nd ref="539306915"/>
+    <nd ref="539306914"/>
+    <nd ref="2976007006"/>
+    <tag k="landuse" v="residential"/>
+  </way>
+  <relation id="9005" version="3" timestamp="2008-03-30T17:15:35Z" uid="22946" user="David Muir Sharnoff" changeset="429375">
+    <member type="way" ref="23542271" role=""/>
+    <member type="way" ref="23542300" role=""/>
+    <member type="way" ref="23542322" role=""/>
+    <tag k="created_by" v="Potlatch 0.8"/>
+    <tag k="name" v="Underwood Apts"/>
+    <tag k="type" v="site"/>
+  </relation>
+  <relation id="9135" version="3" timestamp="2010-01-23T19:43:22Z" uid="110263" user="werner2101" changeset="3694988">
+    <member type="way" ref="23566503" role="outer"/>
+    <member type="way" ref="23566532" role="outer"/>
+    <tag k="name" v="Lake Aliso"/>
+    <tag k="type" v="multipolygon"/>
+  </relation>
+  <relation id="12908" version="7" timestamp="2012-12-07T21:55:44Z" uid="135329" user="ajashton" changeset="14193694">
+    <member type="way" ref="24308281" role="outer"/>
+    <member type="way" ref="24308295" role="inner"/>
+    <member type="way" ref="24308296" role="inner"/>
+    <member type="way" ref="24308298" role="inner"/>
+    <member type="way" ref="31148283" role="inner"/>
+    <tag k="name" v="Stow Lake"/>
+    <tag k="natural" v="water"/>
+    <tag k="type" v="multipolygon"/>
+  </relation>
+  <relation id="18934" version="2" timestamp="2013-03-22T19:31:28Z" uid="153669" user="dchiles" changeset="15458211">
+    <member type="way" ref="24024686" role="outer"/>
+    <member type="way" ref="24024687" role="inner"/>
+    <tag k="type" v="multipolygon"/>
+  </relation>
+  <relation id="18935" version="3" timestamp="2014-04-26T23:14:15Z" uid="1353050" user="rducky26" changeset="21966075">
+    <member type="way" ref="24024291" role="outer"/>
+    <member type="way" ref="25209493" role="inner"/>
+    <tag k="building" v="yes"/>
+    <tag k="type" v="multipolygon"/>
+  </relation>
+  <relation id="32282" version="3" timestamp="2011-10-18T17:29:32Z" uid="207745" user="NE2" changeset="9593097">
+    <member type="way" ref="27023069" role=""/>
+    <member type="way" ref="27239375" role=""/>
+    <tag k="cycle_network" v="US:CA:SF"/>
+    <tag k="network" v="lcn"/>
+    <tag k="ref" v="907"/>
+    <tag k="route" v="bicycle"/>
+    <tag k="type" v="route"/>
+  </relation>
+  <relation id="3692565" version="1" timestamp="2014-04-28T18:05:06Z" uid="153669" user="dchiles" changeset="22007482">
+    <member type="way" ref="125871922" role=""/>
+    <member type="way" ref="125871921" role=""/>
+    <member type="way" ref="12177514" role=""/>
+    <tag k="cycle_network" v="Marin County"/>
+    <tag k="network" v="lcn"/>
+    <tag k="ref" v="6"/>
+    <tag k="route" v="bicycle"/>
+    <tag k="type" v="route"/>
+  </relation>
+  <relation id="3692666" version="1" timestamp="2014-04-28T18:53:38Z" uid="1240849" user="ediyes" changeset="22008370">
+    <member type="way" ref="277875085" role="outer"/>
+    <member type="way" ref="277875090" role="inner"/>
+    <tag k="building" v="yes"/>
+    <tag k="type" v="multipolygon"/>
+  </relation>
+  <relation id="3692667" version="1" timestamp="2014-04-28T18:53:38Z" uid="1240849" user="ediyes" changeset="22008370">
+    <member type="way" ref="277875091" role="outer"/>
+    <member type="way" ref="277875088" role="inner"/>
+    <tag k="building" v="yes"/>
+    <tag k="type" v="multipolygon"/>
+  </relation>
+  <relation id="3692668" version="1" timestamp="2014-04-28T18:53:38Z" uid="1240849" user="ediyes" changeset="22008370">
+    <member type="way" ref="277875084" role="outer"/>
+    <member type="way" ref="277875087" role="inner"/>
+    <tag k="building" v="yes"/>
+    <tag k="type" v="multipolygon"/>
+  </relation>
+  <relation id="3692913" version="1" timestamp="2014-04-28T19:41:06Z" uid="1240849" user="ediyes" changeset="22009399">
+    <member type="way" ref="277889280" role="outer"/>
+    <member type="way" ref="277889283" role="inner"/>
+    <tag k="building" v="yes"/>
+    <tag k="type" v="multipolygon"/>
+  </relation>
+  <relation id="3692941" version="1" timestamp="2014-04-28T20:01:25Z" uid="1240849" user="ediyes" changeset="22009791">
+    <member type="way" ref="277891901" role="outer"/>
+    <member type="way" ref="277891903" role="inner"/>
+    <tag k="building" v="yes"/>
+    <tag k="type" v="multipolygon"/>
+  </relation>
+    <relation id="3414892" version="1" timestamp="2014-01-03T02:23:31Z" uid="119881" user="Clorox" changeset="19779381">
+    <member type="relation" ref="3414888" role=""/>
+    <member type="relation" ref="3414889" role=""/>
+    <tag k="name" v="28L-19th Avenue Limited"/>
+    <tag k="nextbus:agency" v="sf-muni"/>
+    <tag k="nextbus:route" v="28L"/>
+    <tag k="operator" v="San Francisco Municipal Railway"/>
+    <tag k="ref" v="28L"/>
+    <tag k="route_master" v="bus"/>
+    <tag k="type" v="route_master"/>
+  </relation>
+  <relation id="3414893" version="1" timestamp="2014-01-03T02:23:32Z" uid="119881" user="Clorox" changeset="19779381">
+    <member type="relation" ref="3414890" role=""/>
+    <member type="relation" ref="3414891" role=""/>
+    <tag k="name" v="29-Sunset"/>
+    <tag k="nextbus:agency" v="sf-muni"/>
+    <tag k="nextbus:route" v="29"/>
+    <tag k="operator" v="San Francisco Municipal Railway"/>
+    <tag k="ref" v="29"/>
+    <tag k="route_master" v="bus"/>
+    <tag k="type" v="route_master"/>
+  </relation>
+  <relation id="3414894" version="1" timestamp="2014-01-03T02:23:33Z" uid="119881" user="Clorox" changeset="19779381">
+    <member type="relation" ref="3414886" role=""/>
+    <member type="relation" ref="3414887" role=""/>
+    <tag k="name" v="28-19th Avenue"/>
+    <tag k="nextbus:agency" v="sf-muni"/>
+    <tag k="nextbus:route" v="28"/>
+    <tag k="operator" v="San Francisco Municipal Railway"/>
+    <tag k="ref" v="28"/>
+    <tag k="route_master" v="bus"/>
+    <tag k="type" v="route_master"/>
+  </relation>
+    <relation id="3883910" version="1" timestamp="2014-07-11T18:31:50Z" uid="153669" user="dchiles" changeset="24087584">
+    <member type="way" ref="10723402" role="from"/>
+    <member type="way" ref="292336809" role="to"/>
+    <member type="node" ref="2958935271" role="via"/>
+    <tag k="restriction" v="no_right_turn"/>
+    <tag k="type" v="restriction"/>
+  </relation>
+  <relation id="3883911" version="1" timestamp="2014-07-11T18:31:50Z" uid="153669" user="dchiles" changeset="24087584">
+    <member type="way" ref="22375083" role="from"/>
+    <member type="way" ref="10723402" role="to"/>
+    <member type="node" ref="53114657" role="via"/>
+    <tag k="restriction" v="no_u_turn"/>
+    <tag k="type" v="restriction"/>
+  </relation>
+  <relation id="3883912" version="1" timestamp="2014-07-11T18:31:50Z" uid="153669" user="dchiles" changeset="24087584">
+    <member type="way" ref="10714306" role="from"/>
+    <member type="way" ref="292336809" role="to"/>
+    <member type="node" ref="2958935271" role="via"/>
+    <tag k="restriction" v="only_straight_on"/>
+    <tag k="type" v="restriction"/>
+  </relation>
+  <relation id="3890949" version="1" timestamp="2014-07-15T00:25:39Z" uid="104461" user="brunosan" changeset="24151556">
+    <member type="way" ref="254308553" role="from"/>
+    <member type="node" ref="65293779" role="via"/>
+    <member type="way" ref="141688972" role="to"/>
+    <tag k="restriction" v="no_left_turn"/>
+    <tag k="type" v="restriction"/>
+  </relation>
+  <relation id="3892266" version="1" timestamp="2014-07-15T19:45:49Z" uid="597941" user="JeffM8" changeset="24168141">
+    <member type="way" ref="49247661" role="from"/>
+    <member type="node" ref="57937549" role="via"/>
+    <member type="way" ref="49247664" role="to"/>
+    <tag k="restriction" v="no_left_turn"/>
+    <tag k="type" v="restriction"/>
+  </relation>
+  <relation id="3896991" version="1" timestamp="2014-07-18T06:18:44Z" uid="1835512" user="nereocystis" changeset="24214181">
+    <member type="way" ref="250656501" role="street"/>
+    <member type="way" ref="28393629" role="street"/>
+    <member type="way" ref="293262028" role="house"/>
+    <tag k="name" v="40th Street"/>
+    <tag k="type" v="associatedStreet"/>
+  </relation>
+  <relation id="3903307" version="2" timestamp="2014-07-21T23:57:12Z" uid="595221" user="matthieun" changeset="24284414">
+    <member type="way" ref="293800513" role="from"/>
+    <member type="way" ref="8920676" role="to"/>
+    <member type="node" ref="65358797" role="via"/>
+    <tag k="restriction" v="no_left_turn"/>
+    <tag k="type" v="restriction"/>
+  </relation>
+</osm>
