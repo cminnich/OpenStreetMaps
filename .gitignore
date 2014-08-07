@@ -1,5 +1,6 @@
-# *.osm.json files (cleaned/shaped .osm files)
+# *.osm.json files (cleaned/shaped .osm files & SF is too big for github)
 *.osm.json
+san-francisco.osm
 
 # Compilation & Temporary files
 *.pyc
