@@ -1,3 +1,6 @@
 # *.osm.json files (cleaned/shaped .osm files)
 *.osm.json
 
+# Compilation & Temporary files
+*.pyc
+*~
