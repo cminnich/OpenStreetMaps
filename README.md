@@ -1,20 +1,43 @@
 OpenStreetMaps
 ==============
-Shape/Clean/Analyze San Francisco OpenStreetMap data using Python and MongoDB
+Shape/Clean/Analyze San Francisco OpenStreetMap data using Python and MongoDB.
 
-This python based project takes OpenStreetMap data, specifically for the entire
-city of San Francisco (download the .osm file from 
-http://metro.teczno.com/#san-francisco), and performs some cleaning, shaping,
-auditing, and analysis of the data.  
+This Python based project takes OpenStreetMap data, specifically for the entire
+city of *San Francisco* ([download the .osm file here](http://metro.teczno.com/#san-francisco)), 
+and performs some cleaning, shaping, auditing, and analysis of the data.  
 
-The data.py file handles reading the file,
-parsing and performing all the data cleaning.  It will either write the shaped
-data to a .json file so it can be later imported to MongoDB in a batch process,
-or it iteratively inserts each element as it is read from the tree.  The
-iterative method of reading a single element, storing it to MongoDB, and clearing
-it's reference from memory (and from the root) is preferred, particularly so
-with the large San Francisco dataset.
+There are two files that make up the meat of this project: 
 
+    data.py
+    mongo_audit.py
+
+I did this project for the Udacity course: [Data Wrangling with MongoDB] (https://www.udacity.com/course/ud032).
+Highly recommend taking it to anyone that's interested.
+
+Reading Data into MongoDB
+-------------------------
+The data.py file handles reading in the file,
+parsing and performing all the data cleaning and shaping.  
+Using the fairly large San Francisco dataset, I was running into memory issues
+using the ElementTree iterparse function.  The problem was that iterparse does not
+free the references to nodes from each iteration.  It continues to build up an in-memory
+tree of the entire document, which can drag processing to a halt near the end of the file.
+Great reference article for more details by [effbot](http://effbot.org/elementtree/iterparse.htm)
+
+Rather than build up an entire cleaned/shaped collection and saving to a .json file to
+be read into mongoDB later (as initially laid out in the class), I incrementally read in
+each document to MongoDB then clear it from memory.
+
+Requires MongoDB to be installed, configured and running.  I started MongoDB instance locally with the following command
+    `mongod --dbpath ~/data/db/`
+
+Then in the data.py file, make sure OSMFILE is set to the correct Open Street Map dataset (including correct
+relative path).  Run this to read in, clean, shape, and insert data into MongoDB
+    `python data.py`
+    
+
+Analyzing with PyMongo
+----------------------
 The mongo_audit.py file handles the querying and analysis of within MongoDB (using Pymongo).
 A variety of functions are available to query the database in a number of ways:
 
@@ -39,7 +62,10 @@ A variety of functions are available to query the database in a number of ways:
         - option to add a query to the map_reduce call to only pass dog-related
           elements to the mapping task (query does use indexes so it'll work fast)
 
-The other files perform some auditing of the *.osm file as follows.
+
+The Rest
+==============
+The other files perform some auditing of the *.osm file without using MongoDB.
 
 The mapparser.py produces a count of the number of times each tag was seen, i.e:
 
@@ -58,7 +84,7 @@ of regular expressions.  The following is a summary of the san-francisco.osm dat
     {'lower': 625560, 'lower_colon': 506977, 'other': 937, 'problemchars': 214}
 Realized significant improvement in allowable tag strings (decreasing 'other')
 by specifying a number of domain specific regular expressions.
-Within the 'tiger:' prefix (http://wiki.openstreetmap.org/wiki/TIGER),
+Within the ['tiger:' prefix](http://wiki.openstreetmap.org/wiki/TIGER),
 I found a number of fields ending in a number (i.e. '_2' at the end of the key name)
 which represented duplicate keys (or multiple values for the same key).
 
