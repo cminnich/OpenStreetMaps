@@ -66,12 +66,12 @@ A variety of functions are available to query the database in a number of ways:
 
 I have a number of queries set up to run automatically by running: 
 `python mongo_audit.py`
-Or within the Python shell, to search for any names close to 'Dog Park' and search for dog-friendly places close by
-to a given [longitude, latitude]:
+Or within the Python shell, here is an example of how to create the indexes, search for any names close to 'Dog Park' and find nearby dog-friendly places based on [longitude, latitude]:
 
     >>> import mongo_audit as ma
     >>> docs = ma.get_collection()
-    >>> docs.find_name("Dog Park", docs, limit_results=5, printout=1)
+    >>> ma.create_indexes(docs)
+    >>> dog_parks = ma.find_name("Dog Park", docs, limit_results=5, printout=1)
     >>> nearby_dog_friendly = ma.dog_related(docs, [-122.39044189454,37.776148988564], near_limit=5)
     >>> import pprint
     >>> pprint.pprint(nearby_dog_friendly)
