@@ -18,53 +18,66 @@ Reading Data into MongoDB
 -------------------------
 The data.py file handles reading in the file,
 parsing and performing all the data cleaning and shaping.  
-Using the fairly large San Francisco dataset, I was running into memory issues
-using the ElementTree iterparse function.  The problem was that iterparse does not
-free the references to nodes from each iteration.  It continues to build up an in-memory
-tree of the entire document, which can drag processing to a halt near the end of the file.
-Great reference article for more details by [effbot](http://effbot.org/elementtree/iterparse.htm)
 
-Rather than build up an entire cleaned/shaped collection and saving to a .json file to
-be read into mongoDB later (as initially laid out in the class), I incrementally read in
-each document to MongoDB then clear it from memory.
-
-Requires MongoDB to be installed, configured and running.  I started MongoDB instance locally with the following command
+Requires MongoDB to be installed, configured and running.  I start my MongoDB instance locally with the following command
     `mongod --dbpath ~/data/db/`
 
 Then in the data.py file, make sure OSMFILE is set to the correct Open Street Map dataset (including correct
 relative path).  Run this to read in, clean, shape, and insert data into MongoDB
     `python data.py`
     
+Using the fairly large San Francisco dataset, I was running into memory issues
+using the ElementTree iterparse function.  The problem was that iterparse does not
+free the references to nodes from each iteration.  It continues to build up an in-memory
+tree of the entire document, which can drag processing to a halt near the end of the file.
+Great reference article for more details by [effbot](http://effbot.org/elementtree/iterparse.htm).
+
+My solution was to constantly clear each element from memory as soon as it was done and saved into
+MongoDB.  Rather than build up an entire cleaned/shaped collection and saving to a .json file to
+be read into mongoDB later (as initially laid out in the class), I opted for the incremental read of
+each node and skip the .json conversion step altogether.
 
 Analyzing with PyMongo
 ----------------------
-The mongo_audit.py file handles the querying and analysis of within MongoDB (using Pymongo).
+The mongo_audit.py file handles the querying and analysis of the Open Street Map data
+within MongoDB (using Pymongo).
 A variety of functions are available to query the database in a number of ways:
 
-    + basic querying
-        - searching for names, locations, and nodes
-        - using indexes so these queries run fast, even with the large dataset
-        - regex based name searching
-            - additionally maps any node_refs found within 'ways' elements 
-              to corresponding node locations
-    + aggregation pipelines
-        - matching any dog-related nodes (i.e. parks, animal shelters, vets, etc.)
-        - additionally can run an aggregation using $geoNear to find dog-related
-          nodes that are closest to a given lat/long
-    + mapreduce
-        - finds the top contributing users, and then finds the most popular fields that
+* basic querying
+    * searching for names, locations, and nodes
+    * using indexes so these queries run fast, even with the large dataset
+    * regex based name searching
+    * additionally maps any node_refs found within 'ways' elements 
+      to corresponding node locations
+* aggregation pipelines
+    * matching any dog-related nodes (i.e. parks, animal shelters, vets, etc.)
+    * additionally can run an aggregation using $geoNear to find dog-related
+      nodes that are closest to a given lat/long
+    * mapreduce
+        * finds the top contributing users, and then finds the most popular fields that
           user has written (i.e. user 'x' fills out the building/amenity/etc. key
           the most frequently)
-        - has an option to create a new collection with the results (which would save time
+        * has an option to create a new collection with the results (which would save time
           in the future as subsequent calls could query this collection) or return a dictionary
           of results in-line (but runs somewhat slowly since map_reduce is in javascript, 
           & can't be improved speed-wise by indexes)
-        - option to add a query to the map_reduce call to only pass dog-related
+        * option to add a query to the map_reduce call to only pass dog-related
           elements to the mapping task (query does use indexes so it'll work fast)
 
+I have a number of queries set up to run automatically by running: 
+`python mongo_audit.py`
+Or within the Python shell, to search for any names close to 'Dog Park' and search for dog-friendly places close by
+to a given [longitude, latitude]:
 
-The Rest
-==============
+    >>> import mongo_audit as ma
+    >>> docs = ma.get_collection()
+    >>> docs.find_name("Dog Park", docs, limit_results=5, printout=1)
+    >>> nearby_dog_friendly = ma.dog_related(docs, [-122.39044189454,37.776148988564], near_limit=5)
+    >>> import pprint
+    >>> pprint.pprint(nearby_dog_friendly)
+
+Other
+-----
 The other files perform some auditing of the *.osm file without using MongoDB.
 
 The mapparser.py produces a count of the number of times each tag was seen, i.e:
