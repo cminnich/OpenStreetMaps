@@ -1,20 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Your task is to use the iterative parsing to process the map file and
+Use iterative parsing to process the map file and
 find out not only what tags are there, but also how many, to get the
-feeling on how much of which data you can expect to have in the map.
+feeling on how much of which data is expected within the map.
+
 The output should be a dictionary with the tag name as the key
 and number of times this tag can be encountered in the map as value.
-
-Note that your code will be tested with a different data file than the 'example.osm'
 """
 import xml.etree.ElementTree as ET
 import pprint
 
-#OSMFILE = "example.osm"
-#OSMFILE = "example_sf.osm"
-OSMFILE = "san-francisco.osm"
+#OSMFILE = "../example.osm"
+OSMFILE = "../example_sf.osm"
+#OSMFILE = "../san-francisco.osm"
 
 def count_tags(filename):
     

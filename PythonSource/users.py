@@ -4,16 +4,47 @@ import xml.etree.ElementTree as ET
 import pprint
 import re
 """
-Your task is to explore the data a bit more.
-The first task is a fun one - find out how many unique users
+Explores the data a bit more.
+First finds out how many unique users
 have contributed to the map in this particular area!
 
 The function process_map should return a set of unique user IDs ("uid")
+{'#smolsen': 1,
+ '-MegaByte-': 268,
+ '-jha-': 5,
+ '123maps': 11,
+ '1248': 2,
+ '25or6to4': 4,
+ '415vince': 1,
+ '42429': 9323,
+ 'AE35': 103,
+...
+ 'zoeplankton': 230,
+ 'zors1843': 7,
+ 'zoverax': 426,
+ 'zshipko': 11,
+ u'\u041c\u0438\u043b\u0430\u043d \u0408\u0435\u043b\u0438\u0441\u0430\u0432\u0447\u0438\u045b': 1}
+Total # of Users: 1569
+Top 10 contributors
+1) ediyes, 731906 updates (22.7%)
+2) Luis36995, 561664 updates (17.4%)
+3) Rub21, 424249 updates (13.2%)
+4) oldtopos, 337987 updates (10.5%)
+5) KindredCoda, 139788 updates (4.3%)
+6) DanHomerick, 117895 updates (3.7%)
+7) nmixter, 75394 updates (2.3%)
+8) dchiles, 54264 updates (1.7%)
+9) oba510, 46686 updates (1.4%)
+10) StellanL, 42732 updates (1.3%)
+0.6% of Users contribute 78.6% of updates
+Character encoding test...
+Wilfredo Sánchez had 23 entries
+Милан Јелисавчић had 1 entries
 """
 
-#OSMFILE = "example.osm"
-#OSMFILE = "example_sf.osm"
-OSMFILE = "san-francisco.osm"
+#OSMFILE = "../example.osm"
+#OSMFILE = "../example_sf.osm"
+OSMFILE = "../san-francisco.osm"
 
 
 def process_map(filename):

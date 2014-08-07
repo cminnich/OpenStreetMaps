@@ -85,11 +85,12 @@ import codecs
 import json
 from audit import mapping, city_mapping, normalize_capitalization, \
     street_type_re, update_name, update_city, default_city
-from mongo_audit import client, db, get_collection, delete_collection, size_of_collection
+from mongo_audit import client, db, get_collection, delete_collection, \
+    size_of_collection, check_collection_exists
 
-OSMFILE = "example.osm"
-#OSMFILE = "example_sf.osm"
-#OSMFILE = "san-francisco.osm"
+#OSMFILE = "../example.osm"
+OSMFILE = "../example_sf.osm"
+#OSMFILE = "../san-francisco.osm"
 
 lower = re.compile(r'^([a-z]|_)*$')
 lower_colon = re.compile(r'^([a-z]|_)*:([a-z]|_)*$')
@@ -239,7 +240,7 @@ def tag_shape(key, val, node, debug=False):
             parsed_pos = re.search(r'(-?\w*\d*\.\d*)',val)
             if parsed_pos is not None:
                 float_val = float(parsed_pos.group())
-                print '%s->pos: %s->%f'%(key,val,float_val)
+                #print '%s->pos: %s->%f'%(key,val,float_val)
                 val = float_val
                 if 'pos' not in node.keys():
                     node['pos'] = [val]
@@ -284,14 +285,12 @@ def shape_element(element):
         
         for key,val in element.attrib.items():
             node = node_way_shape(standardize_key(key), val, node)
-            print node
         
         for tag in element.iter('tag'):
             if 'k' in tag.attrib.keys() and 'v' in tag.attrib.keys():
                 node = tag_shape(standardize_key(tag.attrib['k']), tag.attrib['v'], node, True)
             else:
                 print "Invalid tag element attrib: %s"%(element.attrib)
-                print tag.attrib.keys()
         
         for nd in element.iter('nd'):
             if 'ref' in nd.attrib.keys():
@@ -324,7 +323,7 @@ def process_map(file_in, pretty = False):
                     fo.write(json.dumps(el) + "\n")
     return data
 
-def mongo_process_map(file_in):
+def mongo_process_map(file_in,print_only=None):
     """Iteratively parse file and read into mongoDB incrementally,
     clearing elements as they are read in."""
     context = ET.iterparse(file_in, events=("start", "end"))
@@ -333,11 +332,18 @@ def mongo_process_map(file_in):
     root.clear() # clear root (eliminate references to children)
     docs = get_collection()
     for event, elem in context:
+        #print 'Reading %s [%s]'%(elem.tag,event)
         if event == "end":
             el = shape_element(elem)
+            #pprint.pprint(el)
             if el:
-                docs.insert(el)
-            elem.clear() # clear element
+                if print_only:
+                    pprint.pprint(el)
+                else:
+                    docs.insert(el)
+                # clear element once end event of node/way has been shaped and read in
+                elem.clear()
+    return docs
     
 
 def import_to_mongodb(data,clear_all=False):
@@ -353,11 +359,17 @@ def import_to_mongodb(data,clear_all=False):
     print "After: %d documents"%(docs.find().count())
 
 def test():
-    mongo_process_map(OSMFILE)
-    
+    skip_mongo = None # Change to None to add to mongoDB
+    if skip_mongo is None:
+        if check_collection_exists():
+            print 'Deleting existing collection'
+            delete_collection()
+    docs = mongo_process_map(OSMFILE,skip_mongo)
+    if docs:
+        print 'Now has %d documents in collection'%(docs.find().count())
     
 def test_1():
-
+    """Warning: memory hog for large san-francisco.osm file, use test() instead"""
     data = process_map(OSMFILE, False)
     
     if OSMFILE == "san-francisco.osm":
