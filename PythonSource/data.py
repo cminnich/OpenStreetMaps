@@ -3,7 +3,7 @@
 """
 Wrangling the data and transform the shape of the data
 into the following model.
-Output should be a list of dictionaries that look like this:
+Output should be a list of dictionaries that look like this example:
 
 {
 "id": "2406124091",
@@ -34,21 +34,29 @@ Cleaning: Standardizes the street name endings and city names
     San Francicsco => San Francisco
 Renames the various alternate name keys to be in a single dictionary called 'other_names'.
 Returns a dictionary, containing the shaped data for that element.
-Saves the data to a file, so that mongoimport can be used to
-import the shaped data into MongoDB. 
+Either saves the data to a file, so that mongoimport can be used to
+import the shaped data into MongoDB, or iteratively adds each element to MongoDB.
+The mongo_process_map function should be used to iteratively read large datafiles,
+i.e. 'san-francisco.osm' due to the nature of the large file and requisite large
+amounts of memory necessary to store the element tree as well as processed results
+(i.e. how process_map parses the data).
+Update misspelled city names (determined from previous exercise) and standardize
+street endings.  Specific keys are excluded from being saved to the output/database,
+which have been identified to not add any valuable information (i.e. 'paloalto_ca:id').
 
-In particular the following things are be done:
-- only process 2 types of top level tags: "node" and "way"
+In particular the following shaping tasks are be done:
+- only processes 2 types of top level tags: "node" and "way"
 - all attributes of "node" and "way" should be turned into regular key/value pairs, except:
     - attributes in the CREATED array should be added under a key "created"
     - attributes for latitude and longitude should be added to a "pos" array,
       for use in geospacial indexing. Make sure the values inside "pos" array are floats
-      and not strings. 
+      and not strings.
 - if second level tag "k" value contains problematic characters, it should be ignored
 - if second level tag "k" value starts with "addr:", it should be added to a dictionary "address"
-- if second level tag "k" value does not start with "addr:", but contains ":", you can process it
-  same as any other tag.
-- if there is a second ":" that separates the type/direction of a street,
+- if second level tag "k" contains a ":" within the text, it should be turned into a dictionary
+    - ensures 'reserved' keys are not overwritten (i.e. 'address') 
+    
+- if there is a second ":" in the key (i.e. for the type/direction of a street),
   the tag should be ignored, for example:
 
 <tag k="addr:housenumber" v="5158"/>

@@ -23,6 +23,11 @@ When searching by user first:
 When using regex to search by name (find_name function):
     u'cursor': u'BtreeCursor name_1'
 
+Running the find_by_user function on 'iandees' (the top dog-related contributor)
+produces a list mostly comprised of Parks when applying the dog specific query.
+It appears that he has created mostly school related entries when looking at all
+his contributions.
+
 Running test() produces the following:
 San Francisco has 3218578 documents
 Searching for the closest 5 dog-related elements
@@ -45,6 +50,7 @@ Searching for the closest 5 dog-related elements
   u'type': u'node'},
   ...]
 Aggregation Result (Dog related documents near Lat:37.78, Lon:-122.39) Count: 5
+
 Top 10 contributing users (out of 174) in dog_user_count:
 1) iandees [254]
 2) oba510 [108]
@@ -56,6 +62,7 @@ Top 10 contributing users (out of 174) in dog_user_count:
 8) KindredCoda [49]
 9) oldtopos [35]
 10) JessAk71 [31]
+
 Top 5 (non-required) fields iandees has entered and the associated count
   1) name : 970
   2) amenity : 543
@@ -69,6 +76,9 @@ Top 5 (non-required) fields iandees has entered and the associated count
   Alto Bowl Preserve
   Alvarado Park
   Alvarado Park
+  
+Added a query condition to the map_reduce call, to only pass dog-related elements
+to the mapping task produces the following list
 Top 10 contributing users (out of 1561) in user_count:
 1) ediyes [731437]
 2) Luis36995 [561610]
@@ -88,6 +98,7 @@ Top 5 (non-required) fields ediyes has entered and the associated count
   5) amenity : 177
   ediyes created 731437 total documents
 """
+
 import pymongo
 import pprint
 import re
@@ -309,8 +320,11 @@ def mapreduce_print_user_created_key_count(docs, username):
     return user_dict
     
 def mapreduce_users(docs,output_inline=1,dog_specific=None):
+    """Uses map_reduce (called in javascript) to create a new collection,
+    or dictionary if output_inline=1, with the creating
+    username as the id and # of contributions as the value:
+    {'_id':username,'value':contributions}"""
     from bson.code import Code
-    # this.tags.forEach(function(z) {
     mapper = Code("""
                   function () {
                       emit(this.created.user, 1);

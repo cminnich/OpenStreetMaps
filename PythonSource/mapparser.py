@@ -16,7 +16,8 @@ OSMFILE = "../example_sf.osm"
 #OSMFILE = "../san-francisco.osm"
 
 def count_tags(filename):
-    
+    """Returns dictionary of different tags and corresponding count of how
+    many times that tag was seen"""
     xml_dict = {}
     context = ET.iterparse( filename )
     for event, elem in context:
