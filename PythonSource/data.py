@@ -97,8 +97,8 @@ from mongo_audit import client, db, get_collection, delete_collection, \
     size_of_collection, check_collection_exists
 
 #OSMFILE = "../example.osm"
-OSMFILE = "../example_sf.osm"
-#OSMFILE = "../san-francisco.osm"
+#OSMFILE = "../example_sf.osm"
+OSMFILE = "../san-francisco.osm"
 
 lower = re.compile(r'^([a-z]|_)*$')
 lower_colon = re.compile(r'^([a-z]|_)*:([a-z]|_)*$')
@@ -331,7 +331,7 @@ def process_map(file_in, pretty = False):
                     fo.write(json.dumps(el) + "\n")
     return data
 
-def mongo_process_map(file_in,print_only=None):
+def mongo_process_map_v1(file_in,print_only=None):
     """Iteratively parse file and read into mongoDB incrementally,
     clearing elements as they are read in."""
     context = ET.iterparse(file_in, events=("start", "end"))
@@ -352,7 +352,28 @@ def mongo_process_map(file_in,print_only=None):
                 # clear element once end event of node/way has been shaped and read in
                 elem.clear()
     return docs
-    
+  
+def mongo_process_map(file_in,print_only=None):
+    """Iteratively parse file and read into mongoDB incrementally,
+    clearing elements as they are read in."""
+    context = ET.iterparse(file_in, events=("start", "end"))
+    context = iter(context) # make iterator
+    event, root = context.next() # get the root element
+    docs = get_collection()
+    for event, elem in context:
+        #print 'Reading %s [%s]'%(elem.tag,event)
+        if event == "end":
+            el = shape_element(elem)
+            #pprint.pprint(el)
+            if el:
+                if print_only:
+                    pprint.pprint(el)
+                else:
+                    docs.insert(el)
+                # clear element once end event of node/way has been shaped and read in
+                elem.clear()
+        root.clear() # delete root (no useful info)
+    return docs  
 
 def import_to_mongodb(data,clear_all=False):
     #mongod --dbpath /Users/cminnich/data/db/

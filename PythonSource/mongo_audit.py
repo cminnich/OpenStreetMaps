@@ -171,6 +171,7 @@ def get_nearby_dog_pipeline(near_loc,near_limit):
     return agg_query
     
 def get_dog_pipeline():
+    # Require some type of location, either pos (lon/lat) or street address in the return values
     aggregate_query = [ { "$match" : {"$and":[{"$or":[{ "pos" : {"$size":2} },
                                                       { "address.street" : any_char_re }] },
                                               { "amenity" : {"$not":not_dog_amenities_re}},
@@ -202,6 +203,7 @@ def dog_related(docs,near_loc=None,near_limit=10):
         + dog-related name or amenity
         + parks
         + dog-related key fields (i.e. grooming, animal_shelter, vet, etc)
+    Returns list of dictionaries with all the fields present (no projection)
     """
     if near_loc is None:
         agg_query = get_dog_pipeline()
