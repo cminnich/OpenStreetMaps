@@ -119,7 +119,6 @@ def node_way_shape(key, val, node):
     elif key == 'lat' or key == 'lon':
         # Remove spaces from invalid data
         val = float(re.sub('\s','',val.strip()))
-        # 'pos' = [Longitude, Latitude]
         if 'pos' not in node.keys():
             node['pos'] = [val]
         elif key == 'lon':
@@ -127,12 +126,16 @@ def node_way_shape(key, val, node):
         else: # key == 'lat'
             node['pos'].append(val)
     else:
-        #if key != 'id': print "Top level key=%s,val=%s"%(key,val)
         node[key] = val
-    #print "key: %s, val: %s"%(key,val)
     return node
     
 def colon_clean(key, val, node):
+    """Performs the shaping and cleaning for keys with a ':'
+    in their names.  Handles a variety of cases by ensuring protected
+    keys are not overwritten or reformatted improperly.  In general, 
+    creates nested dictionaries with the first part preceding the colon
+    as the top level key, and string following the colon will be the nested dictionary
+    key values."""
     if len(key) > 5 and key[:5] == 'name:':
         # Create array of alternate names (or names in different languages)
         key = key[5:]
@@ -160,7 +163,6 @@ def colon_clean(key, val, node):
                 if fixed_name != val: 
                     print val, "=>", fixed_name
                     val = fixed_name
-            #if debug: print "Address key: %s, val: %s"%(key,val)
             if 'address' not in node.keys():
                 node['address'] = {key:val}
             else:
@@ -168,7 +170,6 @@ def colon_clean(key, val, node):
         # Ignore keys with more than 1 colon (and starting with "addr:")
     elif len(key) > 6 and key[:6] == 'tiger:':
         key = key[6:]
-        #if debug: print "Tiger key: %s, val: %s"%(key,val)
         # Skips 'Tiger:MTFCC' keys
         if key == 'mtfcc':
             return node
@@ -226,7 +227,6 @@ def tag_shape(key, val, node, debug=False):
     Expects calling function to convert key to lowercase and
     trim leading/trailing spaces."""
     if problemchars.search(key) is None:
-        #print "Correct key: %s, val: %s"%(key,val)
         if key[-1] == ':':
             # remove trailing ':' from key
             print 'Fixing %s key -> %s=%s'%(key,key[:-1],val)
@@ -248,7 +248,6 @@ def tag_shape(key, val, node, debug=False):
             parsed_pos = re.search(r'(-?\w*\d*\.\d*)',val)
             if parsed_pos is not None:
                 float_val = float(parsed_pos.group())
-                #print '%s->pos: %s->%f'%(key,val,float_val)
                 val = float_val
                 if 'pos' not in node.keys():
                     node['pos'] = [val]
@@ -283,10 +282,15 @@ def tag_shape(key, val, node, debug=False):
 
 
 def standardize_key(key):
+    """Standardizes keys by converting to lowercase and removing
+    trailing/leading whitespaces"""
     return re.sub(r'\s','',key.lower().strip())
 
 
 def shape_element(element):
+    """Shapes elements, must by either a node or way,
+    within the element.tag, and returns a dictionary
+    of the shaped output"""
     node = {}
     if element.tag == "node" or element.tag == "way":
         node['type'] = element.tag
@@ -303,7 +307,6 @@ def shape_element(element):
         for nd in element.iter('nd'):
             if 'ref' in nd.attrib.keys():
                 val = nd.attrib['ref']
-                #print "ND val: %s"%(val)
                 if 'node_refs' not in node.keys():
                     node['node_refs'] = [val]
                 else:
@@ -312,12 +315,15 @@ def shape_element(element):
         return node
         
     else:
-        #print "Other: %s"%(element.tag)
-        #if element.tag == 'tag': print 'Tag: %s'%(element.attrib)
         return None
 
 
 def process_map(file_in, pretty = False):
+    """Default (provided from class) way to read
+    the file and iteratively build an element tree with
+    all the elements, shaping them as the tree is built,
+    and iteratively writing the shaped data to a json file,
+    potentially in a prettied format"""
     file_out = "{0}.json".format(file_in)
     data = []
     with codecs.open(file_out, "w") as fo:
@@ -330,28 +336,6 @@ def process_map(file_in, pretty = False):
                 else:
                     fo.write(json.dumps(el) + "\n")
     return data
-
-def mongo_process_map_v1(file_in,print_only=None):
-    """Iteratively parse file and read into mongoDB incrementally,
-    clearing elements as they are read in."""
-    context = ET.iterparse(file_in, events=("start", "end"))
-    context = iter(context) # make iterator
-    event, root = context.next() # get the root element
-    root.clear() # clear root (eliminate references to children)
-    docs = get_collection()
-    for event, elem in context:
-        #print 'Reading %s [%s]'%(elem.tag,event)
-        if event == "end":
-            el = shape_element(elem)
-            #pprint.pprint(el)
-            if el:
-                if print_only:
-                    pprint.pprint(el)
-                else:
-                    docs.insert(el)
-                # clear element once end event of node/way has been shaped and read in
-                elem.clear()
-    return docs
   
 def mongo_process_map(file_in,print_only=None):
     """Iteratively parse file and read into mongoDB incrementally,
@@ -361,10 +345,8 @@ def mongo_process_map(file_in,print_only=None):
     event, root = context.next() # get the root element
     docs = get_collection()
     for event, elem in context:
-        #print 'Reading %s [%s]'%(elem.tag,event)
         if event == "end":
             el = shape_element(elem)
-            #pprint.pprint(el)
             if el:
                 if print_only:
                     pprint.pprint(el)
@@ -376,9 +358,13 @@ def mongo_process_map(file_in,print_only=None):
     return docs  
 
 def import_to_mongodb(data,clear_all=False):
-    #mongod --dbpath /Users/cminnich/data/db/
-    #Command line import can be used after .json file is writted
-    # mongoimport --dbpath /Users/cminnich/data/db/ -d OpenStreetMaps -c SanFrancisco --file san-francisco.osm.json
+    """Inserts the data to the MongoDB collection.
+    Make sure MongoDB is started, i.e.:
+    mongod --dbpath /Users/cminnich/data/db/
+    Alternatively, can use command line import of
+    .json file after it is saved to a file, i.e.:
+    mongoimport --dbpath /Users/cminnich/data/db/ -d OpenStreetMaps -c SanFrancisco --file san-francisco.osm.json
+    """
     if clear_all:
         delete_collection()
         print "DB Emptied!"
@@ -387,9 +373,11 @@ def import_to_mongodb(data,clear_all=False):
     docs.insert(data) # Batch insert
     print "After: %d documents"%(docs.find().count())
 
-def test():
-    skip_mongo = None # Change to None to add to mongoDB
-    if skip_mongo is None:
+def test(overwite_collection = False):
+    """if the input parameter overwite_collection is not specified (changed from False default),
+    then the existing collections will be deleted and overwritten by the
+    reprocessed OSMFILE data"""
+    if overwite_collection:
         if check_collection_exists():
             print 'Deleting existing collection'
             delete_collection()

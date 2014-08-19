@@ -147,10 +147,11 @@ def size_of_collection(docs):
     return num_docs
     
 def create_indexes(docs):
-    # Ensure Index is a wrapper around Create Index, first checks to see
-    # if the index exists before creating it. Use
-    #   docs.index_information()
-    # to see what indexes exist
+    """Creates multiple indexes needed to improve the speed of queries used
+    by various functions in this file.  Uses Ensure Index, which
+    is a wrapper around Create Index, first checks to see
+    if the index exists before creating it. Use docs.index_information()
+    to see what indexes exist"""
     docs.ensure_index([("pos", pymongo.GEO2D)])
     docs.ensure_index([("created.user",1),("name",1)])
     docs.ensure_index([("name",1)])
@@ -163,6 +164,10 @@ def get_near_loc(lat,lon,docs):
     return close_elems
 
 def get_nearby_dog_pipeline(near_loc,near_limit):
+    """Returns the aggregate query for finding nearby
+    dog-related elements (using $geoNear).
+    near_loc is a lat long pair
+    near_limit is the maximum number of items returned"""
     agg_query = [{ "$geoNear" : { "near" : near_loc, 
                                   "distanceField" : "distance", 
                                   "query" : dog_qry,
@@ -171,7 +176,10 @@ def get_nearby_dog_pipeline(near_loc,near_limit):
     return agg_query
     
 def get_dog_pipeline():
-    # Require some type of location, either pos (lon/lat) or street address in the return values
+    """Returns the aggregate query for finding dog-related elements.
+    Formats the output (using project) to only output a list of relevant fields.
+    Requires some type of location, either pos (lon/lat)
+    or street address in the matched values"""
     aggregate_query = [ { "$match" : {"$and":[{"$or":[{ "pos" : {"$size":2} },
                                                       { "address.street" : any_char_re }] },
                                               { "amenity" : {"$not":not_dog_amenities_re}},
@@ -226,7 +234,8 @@ def find_pos(docs):
     return positions
     
 def find_parks(docs):
-    # Find parks with a name
+    """Find parks (leisure park key value pair) or names
+    that match the predefined dog regular expression"""
     query = { "$and" : [{ "name" : { "$exists" : 1 } },
                         { "$or" : [{ "leisure" : { "$regex" : r"([pP]ark)|([dD]og)" } },
                                    { "name" : dog_re }] }
@@ -236,6 +245,9 @@ def find_parks(docs):
     return parks
 
 def find_name(srch_str, docs, limit_results=5, printout=1):
+    """Searches for and prints names that match the input
+    srch_str, which is split apart by spaces (and will match
+    any characters in between words)"""
     srch_str = '.*'+re.sub(r'\W','.*',srch_str)+'.*'
     if printout:
         print 'Regex: %s'%(srch_str)
